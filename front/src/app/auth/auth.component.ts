@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -11,6 +12,6 @@ export class AuthComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
 }

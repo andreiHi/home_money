@@ -17,18 +17,20 @@ const ENV = 'development';
 module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
     devtool: 'eval-source-map',
     devServer: {
-        contentBase: './target/classes/static/',
+       contentBase: './target/classes/static/',
+      //   host: process.env.DEV_HOST || 'localhost',
+      //   port: process.env.DEV_PORT || 8080,
         proxy: [{
             context: [
-                '/api',
-                '/services',
-                '/management',
-                '/swagger-resources',
-                '/v2/api-docs',
-                '/h2-console',
-                '/auth'
+                '/api/*'
+                // '/services',
+                // '/management',
+                // '/swagger-resources',
+                // '/v2/api-docs',
+                // '/h2-console',
+                // '/auth'
             ],
-            target: 'http://127.0.0.1:8080',
+            target: `http://127.0.0.1:8080`,
             secure: false
         }],
         watchOptions: {
